@@ -1,0 +1,20 @@
+{
+  "name": "wechat-api-demo",
+  "version": "1.0.0",
+  "description": "\"微信公众账号测试\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wechat"
+  ],
+  "author": "zhangguojin",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "compression": "^1.6.2",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  }
+}
