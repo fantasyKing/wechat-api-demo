@@ -4,7 +4,8 @@ export default new class {
 
   async createMenu(menu) {
     return new Promise((resolve, reject) => {
-      Api.createMenu(menu, (err, result) => {
+      const wcApi = Api.getApi();
+      wcApi.createMenu(menu, (err, result) => {
         if (err) {
           reject(err);
         }

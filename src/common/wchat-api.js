@@ -6,7 +6,7 @@ class WechatApi {
     this.api = new WechatAPI(appid, appsecret, getToken, saveToken);
   }
 
-  async getApi() {
+  getApi() {
     return this.api;
   }
 }

@@ -6,6 +6,7 @@ import cors from 'cors';
 
 import errorHandler from './middlewares/error';
 import config from './config/config';
+import Router from './router/index';
 
 const app = express();
 
@@ -15,7 +16,9 @@ app.use(bodyParser({ limit: '64mb' }));
 app.use(bodyParser.urlencoded({ limit: '64mb', extended: true }));
 app.use(compression());
 
-app.get('*', errorHandler.notFoundHandler);
+app.use('/', Router);
+
+app.use(errorHandler.notFoundHandler);
 app.use(errorHandler.errorLog);
 app.use(errorHandler.clientErrorHandler);
 app.use(errorHandler.errorHandler);
