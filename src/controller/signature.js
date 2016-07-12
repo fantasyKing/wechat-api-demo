@@ -1,7 +1,7 @@
 import utility from 'utility';
 // sign
 export default new class {
-  checkSignature(params) {
+  async checkSignature(params) {
     const { echostr, nonce, signature, timestamp } = params;
     const arry = [];
     arry.push('123');
