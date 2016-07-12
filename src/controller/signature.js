@@ -10,7 +10,7 @@ export default new class {
     const tmpStr = arry.sort().join('');
     const sign = utility.sha1(tmpStr);
     if (sign === signature) {
-      logger.info('checkSignature', sign === signature);
+      logger.info('checkSignature', echostr);
       return echostr;
     }
     return false;
