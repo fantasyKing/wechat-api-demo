@@ -20,6 +20,9 @@ function parseParams(req, method) {
       params[key] = value;
     }
   }
+  if (req.rawBody) {
+    console.log('rawbody--->>', req.rawbody);
+  }
   return params;
 }
 

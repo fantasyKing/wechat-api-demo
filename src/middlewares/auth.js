@@ -17,7 +17,7 @@ export default new class {
         delete obj.echostr;
       }
       const arr = [];
-      arr.push('weixin');
+      arr.push('weixin');// 'weixin'为自己设置的token
       arr.push(obj.timestamp);
       arr.push(obj.nonce);
       const sign = utility.sha1(arr.sort().join(''));
@@ -27,7 +27,15 @@ export default new class {
       if (req.method === 'GET') {
         return res.end(params.echostr);
       }
-      return next();
+      let postdata = '';
+      req.on('data', (chunk) => {
+        postdata += chunk;
+      });
+      req.on('end', () => {
+        req.rawBody = postdata;
+        return res.end('ok');
+        // return next();
+      });
     } catch (err) {
       return next(err);
     }
