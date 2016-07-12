@@ -27,6 +27,7 @@ export default new class {
         }
       }
       const sign = utility.sha1(arr.sort().join(''));
+      logger.info('sign', sign === signature);
       if (sign !== signature) {
         return res.end('error');
       }
