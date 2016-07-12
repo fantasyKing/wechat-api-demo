@@ -5,9 +5,9 @@ export default new class extends Base {
   checkSignature = async (req, res, params) => {
     try {
       const result = await signatureCtrl.checkSignature(params);
-      return res.json({ echostr: result });
+      return res.json(result);
     } catch (err) {
-      return res.json({ echostr: '' });
+      return res.json(false);
     }
   }
 };
