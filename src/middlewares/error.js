@@ -18,7 +18,6 @@ export default new class {
   };
 
   notFoundHandler = (req, res) => {
-    console.log('req---->>>', req);
     res.statusCode = 404;
     res.end();
   };
