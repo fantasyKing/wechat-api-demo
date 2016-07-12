@@ -20,23 +20,13 @@ export default new class {
       arr.push('weixin');
       arr.push(obj.timestamp);
       arr.push(obj.nonce);
-      // if (req.method === 'GET') {
-      //   arr.push(obj.timestamp);
-      //   arr.push(obj.nonce);
-      // } else {
-      //   for (const key of Object.keys(obj)) {
-      //     arr.push(obj[key]);
-      //   }
-      // }
       const sign = utility.sha1(arr.sort().join(''));
-      logger.info('sign', sign === signature);
       if (sign !== signature) {
         return res.end('error');
       }
       if (req.method === 'GET') {
         return res.end(params.echostr);
       }
-      logger.info('auth.validateSign===params', params);
       return next();
     } catch (err) {
       return next(err);
