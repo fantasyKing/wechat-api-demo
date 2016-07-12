@@ -9,17 +9,12 @@ function parseParams(req, method) {
   for (const key of Object.keys(req.params)) {
     params[key] = req.params[key];
   }
-
-  if (method === 'GET') {
-    for (const key of Object.keys(req.query)) {
-      params[key] = req.query[key];
-    }
-  } else if (method === 'POST' || method === 'PUT') {
-    for (const key of Object.keys(req.body)) {
-      params[key] = req.body[key];
-    }
+  for (const key of Object.keys(req.query)) {
+    params[key] = req.query[key];
   }
-
+  for (const key of Object.keys(req.body)) {
+    params[key] = req.body[key];
+  }
   if (req.xfiles) {
     for (const [key, value] of req.xfiles.entries()) {
       params[key] = value;
@@ -75,15 +70,11 @@ function morganParams(req, method) {
   Object.keys(req.params).forEach(v => {
     params[v] = req.params[v];
   });
-
-  if (method === 'GET') {
-    Object.keys(req.query).forEach(v => {
-      params[v] = req.query[v];
-    });
-  } else if (method === 'POST' || method === 'PUT') {
-    Object.keys(req.body).forEach(v => {
-      params[v] = req.body[v];
-    });
+  for (const key of Object.keys(req.query)) {
+    params[key] = req.query[key];
+  }
+  for (const key of Object.keys(req.body)) {
+    params[key] = req.body[key];
   }
   params['x-app-id'] = req.headers['x-app-id'];
   params['x-access-token'] = req.headers['x-access-token'];

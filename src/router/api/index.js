@@ -1,7 +1,7 @@
 import menu from './menu';
-import signature from './signature';
+import auth from './../../middlewares/auth';
 
-const api = Object.assign({}, menu, signature);
+const api = Object.assign({}, menu);
 
 /**
  * routes = {
@@ -15,6 +15,7 @@ export default {
     ['GET', '/createMenu', [], api.createMenu, [], [], []]
   ],
   '': [
-    ['GET', '/', [], api.checkSignature, [], [], []]
+    ['GET', '/', [auth.validateSign], [], [], [], []],
+    ['POST', '/', [auth.validateSign], [], [], [], []]
   ]
 };
