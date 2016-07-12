@@ -3,6 +3,7 @@ import bodyParser from 'body-parser';
 import compression from 'compression';
 import morgan from 'morgan';
 import cors from 'cors';
+import busboy from 'connect-busboy';
 
 import errorHandler from './middlewares/error';
 import config from './config/config';
@@ -16,6 +17,7 @@ app.use(cors());
 app.use(bodyParser({ limit: '64mb' }));
 app.use(bodyParser.urlencoded({ limit: '64mb', extended: true }));
 app.use(compression());
+app.use(busboy({ limits: { fileSize: 1024 * 1024 * 1024 } })); // 1G
 
 app.use('/', Router.apiRouter);
 
