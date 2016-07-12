@@ -1,5 +1,6 @@
 import { parseParams } from './../util/parse_params';
 import utility from 'utility';
+import xmlUtil from './../util/xmlutil';
 
 export default new class {
   validateSign = async (req, res, next) => {
@@ -28,12 +29,15 @@ export default new class {
         return res.end(params.echostr);
       }
       let postdata = '';
+      req.setEncoding('utf8');
       req.on('data', (chunk) => {
         postdata += chunk;
       });
       req.on('end', () => {
-        req.rawBody = postdata;
         logger.info(postdata);
+        const data = xmlUtil.parseString(postdata);
+        req.xmljson = data;
+        logger.info(data);
         return res.end('ok');
         // return next();
       });
