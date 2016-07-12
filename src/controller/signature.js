@@ -4,7 +4,7 @@ export default new class {
   checkSignature = async (params) => {
     const { echostr, nonce, signature, timestamp } = params;
     const arry = [];
-    arry.push('123');
+    arry.push('weixin');
     arry.push(timestamp);
     arry.push(nonce);
     const tmpStr = arry.sort().join('');
