@@ -33,9 +33,9 @@ export default new class {
       req.on('data', (chunk) => {
         postdata += chunk;
       });
-      req.on('end', () => {
+      req.on('end', async () => {
         logger.info(postdata);
-        const data = xmlUtil.parseString(postdata);
+        const data = await xmlUtil.parseString(postdata);
         req.xmljson = data;
         logger.info(data);
         return res.end('ok');
