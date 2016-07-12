@@ -6,17 +6,18 @@ import cors from 'cors';
 
 import errorHandler from './middlewares/error';
 import config from './config/config';
-import Router from './router/index';
+import Router from './router';
+import { morganParams } from './util/router_setup';
 
 const app = express();
-
-app.use(morgan('[:date[iso]] [:method :url] [:status] [:response-time ms]'));
+morgan.token('params', req => JSON.stringify(morganParams(req, req.method)));
+app.use(morgan('[:date[iso]] [:method :url] [:status] [:response-time ms] [:params]'));
 app.use(cors());
 app.use(bodyParser({ limit: '64mb' }));
 app.use(bodyParser.urlencoded({ limit: '64mb', extended: true }));
 app.use(compression());
 
-app.use('/', Router);
+app.use('/', Router.apiRouter);
 
 app.use(errorHandler.notFoundHandler);
 app.use(errorHandler.errorLog);

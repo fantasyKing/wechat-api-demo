@@ -19,12 +19,15 @@
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
-    "lodash": "^4.11.2",
+    "google-libphonenumber": "^1.0.24",
+    "lodash": "^4.13.1",
     "moment": "^2.13.0",
     "mongoose": "^4.5.3",
     "morgan": "^1.7.0",
+    "ms-utils": "git+ssh://git@github.com:tinfinite/ms-utils.git",
     "redis": "^2.6.2",
     "utility": "^1.7.1",
+    "validator": "^5.4.0",
     "wechat-api": "^1.28.0"
   },
   "devDependencies": {

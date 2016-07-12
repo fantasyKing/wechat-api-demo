@@ -1,8 +1,9 @@
-import { menu } from '../controller';
+import { menu } from './../../controller';
+import Base from './base';
 
-export default new class {
+export default new class extends Base {
 
-  createMenu = async (req, res, next) => {
+  createMenu = async (req, res, params) => {
     const me = {
       button: [
         {
@@ -14,9 +15,9 @@ export default new class {
     };
     try {
       const result = await menu.createMenu(me);
-      return res.json(result);
+      return this.ok(res, result);
     } catch (err) {
-      return next(err);
+      return this.fail(res)(err);
     }
   }
 };

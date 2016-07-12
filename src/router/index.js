@@ -1,8 +1,10 @@
 import express from 'express';
-import menuRouter from './menu';
+import api from './api';
+import routerSetup from './../util/router_setup';
 
-const Router = express.Router();
+const apiRouter = express.Router();
+routerSetup(apiRouter, api);
 
-Router.get('/menu/createmenu', menuRouter.createMenu.bind(menuRouter));
-
-export default Router;
+export default {
+  apiRouter
+};
