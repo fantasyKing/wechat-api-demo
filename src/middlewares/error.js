@@ -1,6 +1,6 @@
 export default new class {
   errorLog = (e, req, res, next) => {
-    console.error(req.path, 'error = ', e, e.stack);
+    logger.error(req.path, 'error = ', e, e.stack);
     next(e);
   };
 
@@ -18,6 +18,7 @@ export default new class {
   };
 
   notFoundHandler = (req, res) => {
+    logger.info('notFound', req.path, req.url);
     res.statusCode = 404;
     res.end();
   };
