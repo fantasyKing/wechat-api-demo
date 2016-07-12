@@ -1,6 +1,7 @@
 import menu from './menu';
+import signature from './signature';
 
-const api = Object.assign({}, menu);
+const api = Object.assign({}, menu, signature);
 
 /**
  * routes = {
@@ -12,5 +13,8 @@ const api = Object.assign({}, menu);
 export default {
   menu: [
     ['GET', '/createMenu', [], api.createMenu, [], [], []]
+  ],
+  '': [
+    ['GET', '/', [], api.checkSignature, [], [], []]
   ]
 };

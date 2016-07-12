@@ -27,7 +27,7 @@
     "morgan": "^1.7.0",
     "ms-utils": "git+ssh://git@github.com:tinfinite/ms-utils.git",
     "redis": "^2.6.2",
-    "utility": "^1.7.1",
+    "utility": "^1.8.0",
     "validator": "^5.4.0",
     "wechat-api": "^1.28.0"
   },
