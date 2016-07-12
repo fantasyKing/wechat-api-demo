@@ -33,6 +33,7 @@ export default new class {
       });
       req.on('end', () => {
         req.rawBody = postdata;
+        logger.info(postdata);
         return res.end('ok');
         // return next();
       });
