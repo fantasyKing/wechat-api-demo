@@ -17,8 +17,8 @@ export default new class {
         delete obj.echostr;
       }
       const arr = [];
+      arr.push('weixin');
       if (req.method === 'GET') {
-        arr.push('weixin');
         arr.push(obj.timestamp);
         arr.push(obj.nonce);
       } else {
