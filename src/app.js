@@ -4,11 +4,13 @@ import compression from 'compression';
 import morgan from 'morgan';
 import cors from 'cors';
 import busboy from 'connect-busboy';
+import ms_utils from 'ms-utils';
 
 import errorHandler from './middlewares/error';
 import config from './config/config';
 import Router from './router';
 import { morganParams } from './util/router_setup';
+global.logger = ms_utils.logger(config.logger.category, config.logger.level);
 
 const app = express();
 morgan.token('params', req => JSON.stringify(morganParams(req, req.method)));
