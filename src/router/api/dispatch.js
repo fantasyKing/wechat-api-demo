@@ -14,6 +14,11 @@ import wchatApi from './../wchatApi';
 export default new class {
   dispatchEvent = async (req, res, params) => {
     logger.info('dispatchEvent', params);
-    return await wchatApi['event']['click']['test'](req, res, params);
+    try {
+      const result = await wchatApi['event']['click']['test'](req, res, params);
+      return res.end('success');
+    } catch (err) {
+      return res.end('success');
+    }
   }
 };
