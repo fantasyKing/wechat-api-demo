@@ -1,7 +1,8 @@
 import menu from './menu';
 import auth from './../../middlewares/auth';
+import dispatch from './dispatch';
 
-const api = Object.assign({}, menu);
+const api = Object.assign({}, menu, dispatch);
 
 /**
  * routes = {
@@ -16,6 +17,6 @@ export default {
   ],
   '': [
     ['GET', '/', [auth.validateSign], [], [], [], []],
-    ['POST', '/', [auth.validateSign], [], [], [], []]
+    ['POST', '/', [auth.validateSign], [api.dispatchEvent], [], [], []]
   ]
 };
