@@ -16,10 +16,9 @@ export default new class {
     logger.info('dispatchEvent', params);
     try {
       logger.info('wchatApi[event][click][test]', wchatApi);
-      const result = await wchatApi['event']['click']['test'](req, res, params);
-      return res.end('success');
+      return await wchatApi['event']['click']['test'](req, res, params);
     } catch (err) {
-      return res.end('success');
+      return res.end('');
     }
   }
 };
