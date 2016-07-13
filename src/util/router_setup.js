@@ -21,7 +21,10 @@ function parseParams(req, method) {
     }
   }
   if (req.xmljson) {
-    console.log('rawbody--->>', req.xmljson);
+    const xmljson = req.xmljson;
+    for (const key of Object.keys(xmljson)) {
+      params[key] = xmljson[key];
+    }
   }
   return params;
 }

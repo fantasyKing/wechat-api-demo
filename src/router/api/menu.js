@@ -9,7 +9,7 @@ export default new class extends Base {
         {
           type: 'click',
           name: '我的测试',
-          key: 'V1001_TODAY_MUSIC'
+          key: 'test'
         }
       ]
     };
