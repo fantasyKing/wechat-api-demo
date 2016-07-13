@@ -1,8 +1,8 @@
 import message from './message';
 
 const wchatApi = Object.assign({}, message);
-logger.info('wchatApi.message', message);
-logger.info('wchatApi', wchatApi);
+console.log('wchatApi.message', message);
+console.log('wchatApi', wchatApi);
 /**
  * {
  *  'msgtype': [
