@@ -16,7 +16,7 @@ const app = express();
 morgan.token('params', req => JSON.stringify(morganParams(req, req.method)));
 app.use(morgan('[:date[iso]] [:method :url] [:status] [:response-time ms] [:params]'));
 app.use(cors());
-app.use(bodyParser({ limit: '64mb' }));
+app.use(bodyParser.json({ limit: '64mb' }));
 app.use(bodyParser.urlencoded({ limit: '64mb', extended: true }));
 app.use(compression());
 app.use(busboy({ limits: { fileSize: 1024 * 1024 * 1024 } })); // 1G

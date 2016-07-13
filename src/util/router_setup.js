@@ -20,8 +20,8 @@ function parseParams(req, method) {
       params[key] = value;
     }
   }
-  if (req.rawBody) {
-    console.log('rawbody--->>', req.rawbody);
+  if (req.xmljson) {
+    console.log('rawbody--->>', req.xmljson);
   }
   return params;
 }

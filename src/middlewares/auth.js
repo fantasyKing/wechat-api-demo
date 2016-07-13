@@ -34,7 +34,6 @@ export default new class {
         postdata += chunk;
       });
       req.on('end', async () => {
-        logger.info(postdata);
         const data = await xmlUtil.parseString(postdata);
         req.xmljson = data;
         logger.info(data);
