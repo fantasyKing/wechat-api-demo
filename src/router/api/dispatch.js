@@ -15,6 +15,7 @@ export default new class {
   dispatchEvent = async (req, res, params) => {
     logger.info('dispatchEvent', params);
     try {
+      logger.info('wchatApi[event][click][test]', wchatApi['event']['click']['test']);
       const result = await wchatApi['event']['click']['test'](req, res, params);
       return res.end('success');
     } catch (err) {
