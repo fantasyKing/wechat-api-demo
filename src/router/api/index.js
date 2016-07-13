@@ -17,6 +17,6 @@ export default {
   ],
   '': [
     ['GET', '/', [auth.validateSign], [], [], [], []],
-    ['POST', '/', [auth.validateSign], [api.dispatchEvent], [], [], []]
+    ['POST', '/', [auth.validateSign], api.dispatchEvent, [], [], []]
   ]
 };
