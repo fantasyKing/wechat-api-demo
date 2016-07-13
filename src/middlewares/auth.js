@@ -37,8 +37,8 @@ export default new class {
         const data = await xmlUtil.parseString(postdata);
         req.xmljson = data;
         logger.info(data);
-        return res.end('ok');
-        // return next();
+        // return res.end('ok');
+        return next();
       });
     } catch (err) {
       return next(err);
