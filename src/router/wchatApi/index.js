@@ -1,6 +1,8 @@
 import message from './message';
 
 const wchatApi = Object.assign({}, message);
+logger.info('wchatApi.message', message);
+logger.info('wchatApi', wchatApi);
 /**
  * {
  *  'msgtype': [
@@ -11,7 +13,7 @@ const wchatApi = Object.assign({}, message);
 export default {
   event: {
     click: {
-      test: wchatApi.sengMsg
+      test: wchatApi.sendMsg
     }
   }
 };
