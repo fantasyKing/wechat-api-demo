@@ -8,12 +8,12 @@ export default new class {
   }
   image = async (req, res, params) => {
     logger.info('收到图片消息', params.MsgId, params.PicUrl);
-    return await this.sendMsg(params);
+    return await this.sendMsg(req, res, params);
   }
 
   location = async (req, res, params) => {
     logger.info('收到位置消息', params.Label);
-    return await this.sendMsg(params);
+    return await this.sendMsg(req, res, params);
   }
 
 };
