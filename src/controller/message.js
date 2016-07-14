@@ -3,7 +3,7 @@ import { Api } from './../common/wchat-api';
 const wcApi = Api.getApi();
 
 export default new class {
-  sendMsg = async (params) => new Promise((resolve, reject) => {
+  sendText = async (params) => new Promise((resolve, reject) => {
     wcApi.sendText(params.openid, params.Content || 'Hello world', (err, result) => {
       if (err) {
         reject(err);

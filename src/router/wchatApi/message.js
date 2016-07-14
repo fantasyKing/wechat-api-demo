@@ -1,8 +1,8 @@
 import message from './../../controller/message';
 
 export default new class {
-  sendMsg = async (req, res, params) => {
-    const result = await message.sendMsg(params);
+  sendText = async (req, res, params) => {
+    const result = await message.sendText(params);
     logger.info('wechatApi.sendMsg.result', result);
     return res.end('success');
   }
@@ -16,12 +16,12 @@ export default new class {
   location = async (req, res, params) => {
     logger.info('收到位置消息', params.Label);
     params.Content = params.Label;
-    return await this.sendMsg(req, res, params);
+    return await this.sendText(req, res, params);
   }
 
   text = async (req, res, params) => {
     logger.info('收到文字消息', params.Content);
-    return await this.sendMsg(req, res, params);
+    return await this.sendText(req, res, params);
   }
 
   voice = async (req, res, params) => {
@@ -49,6 +49,6 @@ export default new class {
 
   link = async (req, res, params) => {
     logger.info('收到链接消息', params.Title, params.Description, params.Url);
-    return await this.sendMsg(req, res, params);
+    return await this.sendText(req, res, params);
   }
 };
