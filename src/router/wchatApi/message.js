@@ -8,7 +8,9 @@ export default new class {
   }
   image = async (req, res, params) => {
     logger.info('收到图片消息', params.MsgId, params.PicUrl);
-    return await this.sendMsg(req, res, params);
+    const result = await message.sendImage(params);
+    logger.info('wechatApi.image.result', result);
+    return res.end('success');
   }
 
   location = async (req, res, params) => {
