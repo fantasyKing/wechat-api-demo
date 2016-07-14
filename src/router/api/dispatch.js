@@ -28,7 +28,7 @@ export default new class {
     let method = wchatApi[MsgType.toLowerCase()];
     if (Event) {
       method = method[Event.toLowerCase()];
-      if (EventKey && (typeof method === 'object') && method[EventKey.toLowerCase()]) {
+      if (Event.toLowerCase() !== 'view' && EventKey && (typeof method === 'object') && method[EventKey.toLowerCase()]) {
         method = method[EventKey.toLowerCase()];
       }
     }
