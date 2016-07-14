@@ -15,6 +15,7 @@ export default new class {
 
   location = async (req, res, params) => {
     logger.info('收到位置消息', params.Label);
+    params.Content = params.Label;
     return await this.sendMsg(req, res, params);
   }
 
@@ -25,17 +26,23 @@ export default new class {
 
   voice = async (req, res, params) => {
     logger.info('收到语音消息', params.MediaId, params.Format);
-    return await this.sendMsg(req, res, params);
+    const result = await message.sendVoice(params);
+    logger.info('wechatApi.voice.result', result);
+    return res.end('success');
   }
 
   video = async (req, res, params) => {
     logger.info('收到视频消息', params.MediaId, params.ThumbMediaId);
-    return await this.sendMsg(req, res, params);
+    const result = await message.sendVideo(params);
+    logger.info('wechatApi.video.result', result);
+    return res.end('success');
   }
 
   shortvideo = async (req, res, params) => {
     logger.info('收到小视频消息', params.MediaId, params.ThumbMediaId);
-    return await this.sendMsg(req, res, params);
+    const result = await message.sendVideo(params);
+    logger.info('wechatApi.shortvideo.result', result);
+    return res.end('success');
   }
 
   link = async (req, res, params) => {
