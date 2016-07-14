@@ -15,10 +15,21 @@ export default new class {
   dispatchEvent = async (req, res, params) => {
     logger.info('dispatchEvent', params);
     try {
-      logger.info('wchatApi[event][click][test]', wchatApi);
-      return await wchatApi['event']['click']['test'](req, res, params);
+      return await this.autoJudge(params)(req, res, params);
     } catch (err) {
       return res.end('');
     }
+  }
+
+  autoJudge = async (params) => {
+    const { MsgType, Event, EventKey } = params;
+    let method = wchatApi[MsgType.toLowerCase()];
+    if (Event) {
+      method = method[Event.toLowerCase()];
+      if (EventKey && method[Event.toLowerCase()][EventKey.toLowerCase()]) {
+        method = method[Event.toLowerCase()][EventKey.toLowerCase()];
+      }
+    }
+    return method;
   }
 };
