@@ -8,8 +8,23 @@ export default new class extends Base {
       button: [
         {
           type: 'click',
-          name: '我的测试',
+          name: '测试',
           key: 'test'
+        },
+        {
+          name: '菜单',
+          sub_button: [
+            {
+              type: 'view',
+              name: '搜索',
+              url: 'http://www.baidu.com'
+            },
+            {
+              type: 'view',
+              name: '视频',
+              url: 'http://v.qq.com/'
+            }
+          ]
         }
       ]
     };
