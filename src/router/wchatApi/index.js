@@ -41,5 +41,10 @@ export default {
     }
   },
   location: message.location,
-  image: message.image
+  image: message.image,
+  text: message.text,
+  voice: message.voice,
+  video: message.video,
+  shortvideo: message.shortvideo,
+  link: message.link
 };

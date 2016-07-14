@@ -16,4 +16,28 @@ export default new class {
     return await this.sendMsg(req, res, params);
   }
 
+  text = async (req, res, params) => {
+    logger.info('收到文字消息', params.Content);
+    return await this.sendMsg(req, res, params);
+  }
+
+  voice = async (req, res, params) => {
+    logger.info('收到语音消息', params.MediaId, params.Format);
+    return await this.sendMsg(req, res, params);
+  }
+
+  video = async (req, res, params) => {
+    logger.info('收到视频消息', params.MediaId, params.ThumbMediaId);
+    return await this.sendMsg(req, res, params);
+  }
+
+  shortvideo = async (req, res, params) => {
+    logger.info('收到小视频消息', params.MediaId, params.ThumbMediaId);
+    return await this.sendMsg(req, res, params);
+  }
+
+  link = async (req, res, params) => {
+    logger.info('收到链接消息', params.Title, params.Description, params.Url);
+    return await this.sendMsg(req, res, params);
+  }
 };
