@@ -29,9 +29,9 @@ export default new class {
     logger.info('method 1', wchatApi[MsgType.toLowerCase()]);
     if (Event) {
       method = method[Event.toLowerCase()];
-      logger.info('method typeof', method[Event.toLowerCase()]);
-      if (EventKey && (typeof method[Event.toLowerCase()] === 'object') && method[Event.toLowerCase()][EventKey.toLowerCase()]) {
-        method = method[Event.toLowerCase()][EventKey.toLowerCase()];
+      logger.info('method 2', method);
+      if (EventKey && (typeof method === 'object') && method[EventKey.toLowerCase()]) {
+        method = method[EventKey.toLowerCase()];
       }
     }
     logger.info('method', method);
