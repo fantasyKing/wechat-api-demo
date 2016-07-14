@@ -42,7 +42,7 @@ export default new class {
   shortvideo = async (req, res, params) => {
     logger.info('收到小视频消息', params.MediaId, params.ThumbMediaId);
     params.Content = '收到小视频消息';
-    const result = await message.sendVideo(params);
+    const result = await message.sendText(params);
     logger.info('wechatApi.shortvideo.result', result);
     return res.end('success');
   }
