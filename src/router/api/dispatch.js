@@ -15,14 +15,14 @@ export default new class {
   dispatchEvent = async (req, res, params) => {
     logger.info('dispatchEvent', params);
     try {
-      return await this.autoJudge(params)(req, res, params);
+      return await this.autoJudge(req, res, params);
     } catch (err) {
       logger.error('dispatchEvent发生错误', err);
       return res.end('');
     }
   }
 
-  autoJudge = async (params) => {
+  autoJudge = async (req, res, params) => {
     const { MsgType, Event, EventKey } = params;
     logger.info('MsgType   Event  EventKey', MsgType, Event, EventKey);
     let method = wchatApi[MsgType.toLowerCase()];
@@ -31,10 +31,11 @@ export default new class {
       method = method[Event.toLowerCase()];
       logger.info('method 2', method);
       if (EventKey && (typeof method === 'object') && method[EventKey.toLowerCase()]) {
+        logger.info('eventkey', EventKey.toLowerCase());
         method = method[EventKey.toLowerCase()];
       }
     }
     logger.info('method', method);
-    return method;
+    return await method(req, res, params);
   }
 };
