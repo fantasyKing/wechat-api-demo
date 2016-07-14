@@ -26,6 +26,7 @@ export default new class {
     const { MsgType, Event, EventKey } = params;
     logger.info('MsgType   Event  EventKey', MsgType, Event, EventKey);
     let method = wchatApi[MsgType.toLowerCase()];
+    logger.info('method 1', wchatApi[MsgType.toLowerCase()]);
     if (Event) {
       method = method[Event.toLowerCase()];
       logger.info('method typeof', method[Event.toLowerCase()]);
