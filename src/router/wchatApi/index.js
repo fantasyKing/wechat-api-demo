@@ -30,6 +30,12 @@ export default {
     pic_sysphoto: {
       pic_sysphoto: photo.pic_photo
     },
+    pic_photo_or_album: {
+      pic_photo_or_album: photo.pic_photo
+    },
+    pic_weixin: {
+      pic_weixin: photo.pic_photo
+    },
     location_select: {
       location_select: location.location_select
     }
