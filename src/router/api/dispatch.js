@@ -13,7 +13,7 @@ import wchatApi from './../wchatApi';
 
 export default new class {
   dispatchEvent = async (req, res, params) => {
-    logger.info('dispatchEvent', params);
+    logger.info('dispatchEventParams = ', params);
     try {
       return await this.autoJudge(req, res, params);
     } catch (err) {
@@ -24,18 +24,14 @@ export default new class {
 
   autoJudge = async (req, res, params) => {
     const { MsgType, Event, EventKey } = params;
-    logger.info('MsgType   Event  EventKey', MsgType, Event, EventKey);
+    logger.info('MsgType | Event | EventKey', MsgType, Event, EventKey);
     let method = wchatApi[MsgType.toLowerCase()];
-    logger.info('method 1', wchatApi[MsgType.toLowerCase()]);
     if (Event) {
       method = method[Event.toLowerCase()];
-      logger.info('method 2', method);
       if (EventKey && (typeof method === 'object') && method[EventKey.toLowerCase()]) {
-        logger.info('eventkey', EventKey.toLowerCase());
         method = method[EventKey.toLowerCase()];
       }
     }
-    logger.info('method', method);
     return await method(req, res, params);
   }
 };
