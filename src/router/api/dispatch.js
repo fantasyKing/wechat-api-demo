@@ -17,19 +17,23 @@ export default new class {
     try {
       return await this.autoJudge(params)(req, res, params);
     } catch (err) {
+      logger.error('dispatchEvent发生错误', err);
       return res.end('');
     }
   }
 
   autoJudge = async (params) => {
     const { MsgType, Event, EventKey } = params;
+    logger.info('MsgType   Event  EventKey', MsgType, Event, EventKey);
     let method = wchatApi[MsgType.toLowerCase()];
     if (Event) {
       method = method[Event.toLowerCase()];
-      if (EventKey && method[Event.toLowerCase()][EventKey.toLowerCase()]) {
+      logger.info('method typeof', method[Event.toLowerCase()]);
+      if (EventKey && (typeof method[Event.toLowerCase()] === 'object') && method[Event.toLowerCase()][EventKey.toLowerCase()]) {
         method = method[Event.toLowerCase()][EventKey.toLowerCase()];
       }
     }
+    logger.info('method', method);
     return method;
   }
 };
