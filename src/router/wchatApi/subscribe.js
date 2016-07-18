@@ -1,6 +1,11 @@
+import { message } from './../../controller';
+
 export default new class {
   subscribe = async (req, res, params) => {
     logger.info('subscribe ===>', params);
+    params.MediaId = 'T8GD0S-0UmutnjdW_gTJHnmupkGaTljPq3T_9wtRGhM';
+    const result = await message.sendMpNews(params.openid, params.MediaId);
+    logger.info('subscribe.sendMpNews', result);
     return res.end('success');
   }
 

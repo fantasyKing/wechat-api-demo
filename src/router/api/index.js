@@ -1,8 +1,9 @@
 import menu from './menu';
 import auth from './../../middlewares/auth';
 import dispatch from './dispatch';
+import material from './material';
 
-const api = Object.assign({}, menu, dispatch);
+const api = Object.assign({}, menu, dispatch, material);
 
 /**
  * routes = {
@@ -18,5 +19,9 @@ export default {
   '': [
     ['GET', '/', [auth.validateSign], [], [], [], []],
     ['POST', '/', [auth.validateSign], api.dispatchEvent, [], [], []]
+  ],
+  material: [
+    ['GET', '/uploadMaterial/:filepath/:type', [], api.uploadMaterial, ['filepath', 'type'], [1, 1], ['string', 'string']],
+    ['GET', '/uploadNewsMaterial', [], api.uploadNewsMaterial, [], [], []]
   ]
 };

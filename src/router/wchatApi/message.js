@@ -1,4 +1,4 @@
-import message from './../../controller/message';
+import { message } from './../../controller';
 
 export default new class {
   sendText = async (req, res, params) => {
