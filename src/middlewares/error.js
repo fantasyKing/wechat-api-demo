@@ -18,7 +18,7 @@ export default new class {
   };
 
   notFoundHandler = (req, res) => {
-    logger.info('notFound', req.path, req.url);
+    logger.info('notFound', req.path, req.url, req._remoteAddress);
     res.statusCode = 404;
     res.end();
   };
