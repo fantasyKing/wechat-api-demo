@@ -78,6 +78,7 @@ const serverConfig = {
     new webpack.IgnorePlugin(/\.\/prod_.?/),
     new webpack.SourceMapDevToolPlugin({
       filename: '[name].map',
+      include: ['app.js'],
       module: true,
       columns: true,
       lineToLine: true
