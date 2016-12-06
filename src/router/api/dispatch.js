@@ -18,7 +18,7 @@ export default new class {
       return await this.autoJudge(req, res, params);
     } catch (err) {
       logger.error('dispatchEvent发生错误', err.message, err);
-      return res.end('');
+      return res.end('success');
     }
   }
 
