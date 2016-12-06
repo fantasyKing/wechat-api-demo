@@ -12,6 +12,11 @@ export default new class extends Base {
           key: 'test'
         },
         {
+          type: 'click',
+          name: 'articles',
+          key: 'articles'
+        },
+        {
           name: '菜单',
           sub_button: [
             {

@@ -51,4 +51,12 @@ export default new class {
     logger.info('收到链接消息', params.Title, params.Description, params.Url);
     return await this.sendText(req, res, params);
   }
+
+  sendMpNews = async (req, res, params) => {
+    logger.info('测试发送mpNews.params', params);
+    params.MediaId = 'T8GD0S-0UmutnjdW_gTJHrLYv_Pb9hBDRRhB2hq4PyA';
+    const result = await message.sendMpNews(params);
+    logger.info('测试发送mpNews.result', result);
+    return res.end('success');
+  }
 };
