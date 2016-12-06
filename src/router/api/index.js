@@ -2,8 +2,9 @@ import menu from './menu';
 import auth from './../../middlewares/auth';
 import dispatch from './dispatch';
 import material from './material';
+import message from './message';
 
-const api = Object.assign({}, menu, dispatch, material);
+const api = Object.assign({}, menu, dispatch, material, message);
 
 /**
  * routes = {
@@ -23,5 +24,8 @@ export default {
   material: [
     ['GET', '/uploadMaterial/:filepath/:type', [], api.uploadMaterial, ['filepath', 'type'], [1, 1], ['string', 'string']],
     ['GET', '/uploadNewsMaterial', [], api.uploadNewsMaterial, [], [], []]
+  ],
+  news: [
+    ['GET', '/sendMass', [], api.sendNews, [], [], []]
   ]
 };

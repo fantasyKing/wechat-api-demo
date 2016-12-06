@@ -65,4 +65,13 @@ export default new class {
       resolve(result);
     });
   })
+
+  massSend = async (params) => new Promise((resolve, reject) => {
+    wcApi.massSend(params.options, params.receivers, (err, result) => {
+      if (err) {
+        return reject(err);
+      }
+      return resolve(result);
+    });
+  })
 };
