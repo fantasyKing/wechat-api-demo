@@ -16,7 +16,7 @@ const wchatApi = Object.assign({}, message, eventView);
 export default {
   event: {
     click: {
-      test: wchatApi.sendMsg
+      test: wchatApi.sendText
     },
     view: wchatApi.letGo,
     subscribe: subscribe.subscribe,
