@@ -30,7 +30,7 @@
     "redis": "^2.6.2",
     "utility": "^1.8.0",
     "validator": "^5.4.0",
-    "wechat-api": "git+ssh://git@github.com:fantasyKing/wechat-api.git#master",
+    "wechat-api": "^1.32.0",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
