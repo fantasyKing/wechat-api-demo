@@ -11,7 +11,7 @@ export default new class extends Base {
         },
         msgtype: 'mpnews'
       };
-      params.receivers = ['o3yxQwOuVYyT5td8CJb-WxNTRr0o'];
+      params.receivers = ['o3yxQwOuVYyT5td8CJb-WxNTRr0o', 'o3yxQwMGh7kmjKYHdvnPafB4I7Vs'];
       const result = await message.massSend(params);
       logger.info('sendNews.result', result);
       this.ok(res, result);
